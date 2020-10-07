@@ -116,10 +116,10 @@ def complexity(x, y, z, model_name, min_deg=1, max_deg=10, alpha = 0):
     plt.legend()
     plt.show()
     
+    # Prints the optimal error values within a given interval
     print('min mse:', min_mse)
     print('r2:', min_r2)
     print('deg:', min_deg)
-    #print(model.beta)
     
 def alpha_tests(x,y,z,model_name,min_alpha=-10,max_alpha=2,num_alpha = 13):
     """
