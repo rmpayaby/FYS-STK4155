@@ -48,8 +48,7 @@ class Regress:
     def Lasso(self):
         clf = skl.Lasso(alpha = self.alpha,fit_intercept=False, normalize=False,max_iter=10000, tol=1e-1).fit(self.X, self.z)
         self.beta = clf.coef_
-#0.006
-
+        
     def fit(self, X, z):
         """
         Fits the specified model to the data. Calling in the method
