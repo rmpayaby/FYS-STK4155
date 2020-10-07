@@ -34,16 +34,12 @@ as well.
 
 """
 
-def generate_mesh(n, random_pts = 0):
+def generate_mesh(n):
     """
     Generated a mesh of n x and y values.
     """
-    if random_pts == 0:
-        x = np.linspace(0, 1, n)
-        y = np.linspace(0, 1, n)
-    if random_pts == 1:
-        x = np.random.rand(n)
-        y = np.random.rand(n)
+    x = np.linspace(0, 1, n)
+    y = np.linspace(0, 1, n)
     return np.meshgrid(x, y)
 
 """ Own defined error metrics"""
