@@ -12,16 +12,9 @@ from list_of_func import *
 
 from tqdm import tqdm
 import pandas as pd
-from matplotlib import cm
-from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
-import matplotlib.colors as colors
-import matplotlib.ticker as ticker
 from sklearn.preprocessing import StandardScaler
-from matplotlib.patches import Rectangle
-import time
 from imageio import imread
-
 
 import altair as alt
 from altair import Row, Column, Chart, Text, Scale, Color
@@ -62,12 +55,6 @@ def complexity(x, y, z, model_name, min_deg=1, max_deg=10, alpha = 0):
     mse = np.zeros(num_deg); mse_train = np.zeros(num_deg)
     bias = np.zeros(num_deg); variance = np.zeros(num_deg); r2 = np.zeros(num_deg)
 
-    # Initialize the optimal error metrics
-    min_mse = 1e100
-    min_r2 = 0
-    min_deg = 0
-    i = 0
-
     #loop through the specified degrees to be analyzed
     for deg in degrees:
         X = create_X(x, y, int(deg))
@@ -84,13 +71,6 @@ def complexity(x, y, z, model_name, min_deg=1, max_deg=10, alpha = 0):
                                             'r2': r2[i],
                                            'mse_train': mse_train[i]},
                                            ignore_index=True)
-
-        #Defines the optimal error value
-        if mse[i] < min_mse:
-            min_mse = mse[i]
-            min_r2 = r2[i]
-            min_deg = deg
-
 
         i += 1
 
