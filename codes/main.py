@@ -34,10 +34,11 @@ from skimage.io import imsave
 
 def main():
     """
-    Sample run for Franke function
+    Sample run for Franke function.
     
+    Default resampling technique is set to bootstrap.
     
-    N.B, to change resampling method: 
+    N.B, to change resampling method: Change line 77 in the python file: results.py.
     """
     np.random.seed(100)
     n = 20
