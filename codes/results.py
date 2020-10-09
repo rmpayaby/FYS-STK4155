@@ -74,7 +74,7 @@ def complexity(x, y, z, model_name, min_deg=1, max_deg=10, alpha = 0):
         resample = Resampling(X, z)
 
         #perform bootstrap resampling and save error values
-        mse[i], bias[i], variance[i], r2[i], mse_train[i] = resample.kfold_cross_val(model)
+        mse[i], bias[i], variance[i], r2[i], mse_train[i] = resample.bootstrap(model)
 
         #save to pandas dataframe
         errors = errors.append({'degrees': degrees[i],
