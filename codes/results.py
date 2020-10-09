@@ -54,6 +54,12 @@ def complexity(x, y, z, model_name, min_deg=1, max_deg=10, alpha = 0):
     num_deg = len(degrees)
     mse = np.zeros(num_deg); mse_train = np.zeros(num_deg)
     bias = np.zeros(num_deg); variance = np.zeros(num_deg); r2 = np.zeros(num_deg)
+    
+    # Initialize the optimal error metrics
+    min_mse = 1e100
+    min_r2 = 0
+    min_deg = 0
+    i = 0
 
     #loop through the specified degrees to be analyzed
     for deg in degrees:
@@ -71,6 +77,12 @@ def complexity(x, y, z, model_name, min_deg=1, max_deg=10, alpha = 0):
                                             'r2': r2[i],
                                            'mse_train': mse_train[i]},
                                            ignore_index=True)
+        
+        #Defines the optimal error value
+        if mse[i] < min_mse:
+            min_mse = mse[i]
+            min_r2 = r2[i]
+            min_deg = deg
 
         i += 1
 
@@ -119,14 +131,12 @@ def alpha_tests(x,y,z,model_name,min_alpha=-10,max_alpha=2,num_alpha = 13):
     mse = np.zeros(num_alpha); mse_train = np.zeros(num_alpha)
     bias = np.zeros(num_alpha); variance = np.zeros(num_alpha); r2 = np.zeros(num_alpha)
 
-    
-    min_mse = 1e100
-    min_r2 = 0
-    min_lambda = 0
-    i = 0
+   
+
     
     # Making a loop to perform regression analysis with different 
     # hyperparameter
+    i = 0
     for alpha in alpha_vals:
         X = create_X(x, y, 5)
         resample = Resampling(X, z)
@@ -141,12 +151,6 @@ def alpha_tests(x,y,z,model_name,min_alpha=-10,max_alpha=2,num_alpha = 13):
                                             'r2': r2[i],
                                            'mse_train': mse_train[i]},
                                            ignore_index=True)
-    # Again, store the optimal values
-        if mse[i] < min_mse:
-            min_mse = mse[i]
-            min_r2 = r2[i]
-            min_alpha = alpha_vals[i]
-
 
         i += 1
     
