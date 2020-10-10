@@ -52,10 +52,11 @@ def main():
     
     
     
-    #complexity(x, y, z_flat, 'OLS', min_deg=1, max_deg = 10, alpha = 10**-5)
-    #confidence_intervals(X,z_flat)
-    #learning_curve('OLS',X,z_flat)
-    #generate_heatmaps(x, y, z_flat, "Ridge")
+    complexity(x, y, z_flat, 'OLS', min_deg=1, max_deg = 10, alpha = 10**-5)
+    confidence_intervals(X,z_flat)
+    learning_curve('OLS',X,z_flat)
+    #generate_heatmaps(x, y, z_flat, "Ridge") 
+    alpha_tests(x,y,z_flat,"Ridge")
 
 
 
