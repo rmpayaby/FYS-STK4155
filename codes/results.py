@@ -89,7 +89,7 @@ def complexity(x, y, z, model_name, min_deg=1, max_deg=10, alpha = 0):
 
 
     #plot error of test set and training set
-    plt.title("Train test MSE, Ridge (terrain data)")
+    plt.title("Bootstrap MSE, OLS (Franke function)")
     plt.plot(degrees, mse, label='test set')
     plt.plot(degrees, mse_train, label='training set')
     plt.legend()
@@ -99,7 +99,7 @@ def complexity(x, y, z, model_name, min_deg=1, max_deg=10, alpha = 0):
     
 
     #plot bias^2 variance decomposition of the test error
-    plt.title("Bias-variance tradeoff, Ridge (terrain data)")
+    plt.title("Bias-variance tradeoff, Bootstrap")
     plt.plot(degrees, mse, label='mse')
     plt.plot(degrees, bias,'--', label='bias')
     plt.plot(degrees, variance, label='variance')
@@ -224,7 +224,7 @@ def learning_curve(model_name,X,y):
     plt.plot(np.sqrt(train_error), "r-+", linewidth=2, label="train")
     plt.plot(np.sqrt(test_error), "b-", linewidth=3, label="test")
     plt.legend()
-    plt.title("Learning curve, OLS (terrain data)")
+    plt.title("Learning curve, OLS (Franke function)")
     plt.ylabel("RMSE")
     plt.xlabel("Training set size")
     
