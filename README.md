@@ -8,6 +8,8 @@ deg: 5.0
 
 N.B the heatmap/grid search were produced in Altair, thus it will not work if that package is not installed.
 
+In order to change the resampling technique, go to result.py, and change line 71. Replace bootstrap with one of the following methods: "train_test" (prior to resampling of data), "kfold_cross_val" (own code), "sklearns_kfold". 
+
 The terrain data can be found on the terrain_data folder.
 
 
